@@ -1,0 +1,22 @@
+{
+  "name": "cloudmemory",
+  "version": "1.0.0",
+  "description": "react/redux experimentation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbmilgrom/cloudmemory.git"
+  },
+  "author": "jonathan milgrom",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jbmilgrom/cloudmemory/issues"
+  },
+  "homepage": "https://github.com/jbmilgrom/cloudmemory#readme",
+  "devDependencies": {
+    "webpack": "^1.13.2"
+  }
+}
