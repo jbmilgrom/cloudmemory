@@ -10,13 +10,23 @@
     "type": "git",
     "url": "git+https://github.com/jbmilgrom/cloudmemory.git"
   },
-  "author": "jonathan milgrom",
+  "author": "Jonathan Milgrom",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jbmilgrom/cloudmemory/issues"
   },
   "homepage": "https://github.com/jbmilgrom/cloudmemory#readme",
   "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-syntax-jsx": "^6.13.0",
+    "babel-plugin-transform-react-jsx": "^6.8.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
     "webpack": "^1.13.2"
+  },
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
   }
 }
