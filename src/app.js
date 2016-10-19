@@ -4,6 +4,7 @@ import * as Redux from 'redux' // no default export
 import Memories from './containers/Memories'
 import Provider from './containers/Provider'
 import memoriesReducer from './reducers/memories'
+import * as actions from './actions'
 
 const memoriesList = [{
   name: 'hey',
@@ -18,7 +19,7 @@ const memoriesList = [{
 
 const store = Redux.createStore(memoriesReducer);
 
-store.dispatch({type: 'ADD_MEMORIES', memories: memoriesList});
+store.dispatch(actions.addMemories(memoriesList));
 
 ReactDOM.render(
   <Provider store={store}>

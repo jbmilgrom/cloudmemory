@@ -1,6 +1,7 @@
 import React from 'react'
 import MemoryList from '../components/MemoryList'
 import MemoryMaker from '../components/MemoryMaker'
+import * as actions from '../actions'
 
 const Memories = React.createClass({
   componentDidMount: function() {
@@ -14,11 +15,11 @@ const Memories = React.createClass({
   },
   makeMemory: function(memory) {
     const { store } = this.context;
-    store.dispatch({type: 'ADD_MEMORY', memory: {name: memory.value}});
+    store.dispatch(actions.addMemory(memory.value));
   },
   removeMemory: function(id) {
     const { store } = this.context;
-    store.dispatch({type: 'REMOVE_MEMORY', id: id});
+    store.dispatch(actions.removeMemory(id));
   },
   render: function() {
     const { store } = this.context;
