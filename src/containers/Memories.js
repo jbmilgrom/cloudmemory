@@ -1,6 +1,6 @@
 import React from 'react'
-import MemoryList from './MemoryList'
-import MemoryMaker from './MemoryMaker'
+import MemoryList from '../components/MemoryList'
+import MemoryMaker from '../components/MemoryMaker'
 
 const Memories = React.createClass({
   componentDidMount: function() {

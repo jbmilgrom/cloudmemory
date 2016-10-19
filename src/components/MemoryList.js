@@ -1,5 +1,5 @@
 import React from 'react'
-import Memory from '../components/Memory'
+import Memory from './Memory'
 
 const MemoryList = React.createClass({
 
