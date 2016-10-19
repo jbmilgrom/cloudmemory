@@ -22,11 +22,11 @@ const Memories = React.createClass({
   },
   render: function() {
     const { store } = this.context;
-    const state = store.getState();
+    const memories = store.getState();
     return (
       <div className="memories">
         <MemoryMaker onSubmit={this.makeMemory}/>
-        <MemoryList data={state.memories} onMemoryClick={this.removeMemory}/>
+        <MemoryList data={memories} onMemoryClick={this.removeMemory}/>
       </div>
     )
   }
