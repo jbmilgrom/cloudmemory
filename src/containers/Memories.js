@@ -3,32 +3,37 @@ import MemoryList from './MemoryList'
 import MemoryMaker from './MemoryMaker'
 
 const Memories = React.createClass({
-  getInitialState: function() {
-    return {memories: this.context.data}
+  componentDidMount: function() {
+    const { store } = this.context;
+    this.unsubscribe = store.subscribe(() => {
+      this.forceUpdate();
+    });
+  },
+  componentWillUnmount: function() {
+    this.unsubscribe();
   },
   makeMemory: function(memory) {
-    const memories = this.state.memories;
-    const id = memories[memories.length - 1].id + 1;
-    this.setState({memories: memories.concat([{name: memory.value, id: id}])})
+    const { store } = this.context;
+    store.dispatch({type: 'ADD_MEMORY', memory: {name: memory.value}});
   },
   removeMemory: function(id) {
-    const memories = this.state.memories;
-    const memory = this.state.memories.filter((memory) => memory.id === id)[0]
-    memories.splice(memories.indexOf(memory), 1)
-    this.setState({memories: memories})
+    const { store } = this.context;
+    store.dispatch({type: 'REMOVE_MEMORY', id: id});
   },
   render: function() {
+    const { store } = this.context;
+    const state = store.getState();
     return (
       <div className="memories">
         <MemoryMaker onSubmit={this.makeMemory}/>
-        <MemoryList data={this.state.memories} onMemoryClick={this.removeMemory}/>
+        <MemoryList data={state.memories} onMemoryClick={this.removeMemory}/>
       </div>
     )
   }
 })
 
 Memories.contextTypes = {
-  data: React.PropTypes.array
+  store: React.PropTypes.object
 };
 
 module.exports = Memories;
