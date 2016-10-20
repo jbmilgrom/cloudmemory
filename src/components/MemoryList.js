@@ -5,7 +5,7 @@ const MemoryList = React.createClass({
 
   render: function() {
     let memoryNodes = this.props.data.map((memory) => {
-      return <Memory key={memory.id} name={memory.name} onClick={this.props.onMemoryClick.bind(null, memory.id)}/>
+      return <Memory key={memory.id} name={memory.name} onClick={this.props.removeMemory.bind(null, memory.id)}/>
     });
     return (
       <div className="memory-list">
