@@ -9,8 +9,10 @@ const MemoryMaker = React.createClass({
   },
   onSubmit: function(e) {
     e.preventDefault();
-    this.props.addMemory({value: this.state.text});
-    this.setState({text: ''})
+    if (this.state.text) {
+      this.props.addMemory({value: this.state.text});
+      this.setState({text: ''});
+    }
   },
   render: function() {
     return (

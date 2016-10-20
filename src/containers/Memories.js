@@ -1,11 +1,9 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
-import MemoryList from '../components/MemoryList'
-import MemoryMaker from '../components/MemoryMaker'
+import Memories from '../components/Memories'
 import * as actions from '../actions'
-import compose from '../utilities/compose'
 
-const Memories = React.createClass({
+const MemoriesContainer = React.createClass({
   componentDidMount: function() {
     const { store } = this.context;
     this.unsubscribe = store.subscribe(() => {
@@ -20,16 +18,13 @@ const Memories = React.createClass({
     const memories = store.getState();
     const boundActionCreators = bindActionCreators(actions, store.dispatch);
     return (
-      <div className="memories">
-        <MemoryMaker addMemory={compose(boundActionCreators.addMemory, (memory) => memory.value)}/>
-        <MemoryList data={memories} removeMemory={boundActionCreators.removeMemory}/>
-      </div>
+      <Memories {...boundActionCreators} memories={memories}/>
     )
   }
 })
 
-Memories.contextTypes = {
+MemoriesContainer.contextTypes = {
   store: React.PropTypes.object
 };
 
-module.exports = Memories;
+module.exports = MemoriesContainer;
