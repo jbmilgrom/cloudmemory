@@ -11,9 +11,9 @@ const MemoryList = React.createClass({
         onClick={() => this.props.removeMemory(memory.id)} />
     });
     return (
-      <div className="memory-list">
+      <ul className="memory-list">
         {memoryNodes}
-      </div>
+      </ul>
     )
   }
 })

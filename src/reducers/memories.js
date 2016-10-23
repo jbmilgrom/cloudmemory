@@ -1,6 +1,7 @@
 import { ADD_MEMORIES, ADD_MEMORY, REMOVE_MEMORY } from '../constants/ActionTypes'
 
 export default (state = [], action) => {
+  console.log('reducer action: ', action);
   switch (action.type) {
     case ADD_MEMORIES:
       return [...state, ...action.memories];
@@ -10,6 +11,6 @@ export default (state = [], action) => {
     case REMOVE_MEMORY:
       return state.filter(memory => memory.id !== action.id);
     default:
-      return state
+      return state;
   }
 };

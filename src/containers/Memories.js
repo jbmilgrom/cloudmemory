@@ -22,14 +22,14 @@ import * as actions from '../actions'
  *     const state = store.getState();
  *     const boundActionCreators = bindActionCreators(actions, store.dispatch);
  *     return (
- *       <Memories {...boundActionCreators} memories={state}/>
+ *       <Memories {...boundActionCreators} memories={state.memories}/>
  *     )
  *   }
  * })
  *
  */
 
-const mapStateToProps = (state) => ({memories: state});
+const mapStateToProps = (state) => ({memories: state.memories});
 const mapDispatchToProps = (dispatch) => bindActionCreators(actions, dispatch);
 
 const MemoriesConnected = connect(
